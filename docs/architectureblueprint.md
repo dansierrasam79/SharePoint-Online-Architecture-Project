@@ -26,6 +26,7 @@ QualityFirst Technologies is a testing and quality engineering organization prov
 - Support compliance and audit activities
 - Automate business processes
 - Establish a Copilot-ready information architecture
+
 ---
 
 # 3. Practice Areas
@@ -71,6 +72,7 @@ Focuses on standards validation, certification, and interoperability testing.
 - Interoperability Assessments
 - Standards Documentation
 - Approval Records
+
 ---
 
 # 4. Site Architecture
@@ -83,15 +85,17 @@ QualityFirst Corporate Hub
 ├── Cybersecurity
 └── Conformance & Interoperability
 ```
+
 ## Site Purpose
 ### QualityFirst Corporate Hub
 Provides centralized navigation, communication, search, governance information, and access to all practice areas.
 
 ### Practice Area Sites
 Provide collaboration spaces, document management capabilities, and records repositories for each business function.
+
 ---
 
-# 5. Information Architectur
+# 5. Information Architecture
 The information architecture is based on business functions rather than technology platforms.
 
 ## Core Principles
@@ -135,4 +139,238 @@ Records no longer in active use but retained for audit, compliance, or business 
 - Closed Audits
 
 ### Permanent Records
-Records with enduring 
+Records with enduring organizational value.
+
+**Examples**
+- Quality Manuals
+- Corporate Policies
+- Strategic Plans
+- Certification Records
+- Governance Records
+
+## Records Lifecycle
+```text
+Draft
+↓
+Review
+↓
+Approved
+↓
+Published
+↓
+Active
+↓
+Inactive
+↓
+Disposition Review
+↓
+Archive
+↓
+Permanent Archive
+OR
+Dispose
+```
+
+## Permanent Archive
+### Purpose
+Repository for the long-term preservation of historical, legal, governance, certification, and organizational records that must be retained for reference, compliance, or institutional memory.
+
+### Examples
+- Strategic Plans
+- Governance Records
+- Quality Manuals
+- Certification Reports
+- Standards Documentation
+
+## Retention and Disposition
+Records reaching the end of their retention period will undergo a disposition review.
+
+### Possible Actions
+- Archive
+- Retain
+- Transfer to Permanent Archive
+- Dispose
+
+## Retention Notifications
+Power Automate workflows will be used to:
+
+```text
+Identify records nearing retention expiry
+↓
+Notify the Record Owner
+↓
+Notify the Records Manager
+↓
+Create a Disposition Review
+↓
+Capture disposition decision
+```
+
+## Governance Roles
+### Record Owner
+Responsible for content accuracy and ongoing maintenance.
+
+### Records Manager
+Responsible for retention, archival, and disposition decisions.
+
+### Site Owner
+Responsible for site governance and access management.
+
+### Microsoft 365 Administrator
+Responsible for technical administration and platform controls.
+---
+
+# 7. Metadata Strategy
+## Purpose
+Metadata provides a consistent method for classifying, managing, securing, locating, and governing records across the QualityFirst Technologies SharePoint Online platform.
+The metadata model supports:
+- Information discoverability
+- Records management
+- Search optimization
+- Governance
+- Power Automate workflows
+- Copilot readiness
+
+## Core Metadata
+### Record ID
+Unique identifier assigned to each record.
+
+### Record Title
+Business-friendly title of the document or record.
+
+### Document Type
+Classifies the type of record.
+
+**Example Values**
+- Policy
+- Procedure
+- Standard
+- Guideline
+- Report
+- Assessment
+- Plan
+- Analysis
+- Certification
+- Evidence
+
+### Practice Area
+Identifies the business function responsible for the record.
+
+**Values**
+- Quality Engineering
+- Media & Content
+- Cybersecurity
+- Conformance & Interoperability
+
+### Owner
+Individual accountable for the record.
+
+### Lifecycle Status
+Current state of the record.
+
+**Values**
+- Draft
+- Review
+- Approved
+- Published
+- Active
+- Inactive
+- Disposition Review
+- Archived
+- Permanent
+- Disposed
+
+### Retention Category
+Specifies retention requirements.
+
+**Values**
+- 3 Years
+- 5 Years
+- 7 Years
+- 10 Years
+- Permanent
+
+### Review Date
+Next scheduled review date.
+
+## Metadata Principles
+- Metadata before folders
+- Consistent classification across all sites
+- Required metadata for business records
+- Supports search and retrieval
+- Supports lifecycle and retention management
+- Supports future automation and AI experiences
+---
+
+# 8. Governance Framework
+The platform will implement governance controls for:
+- Site ownership
+- Content ownership
+- Permission management
+- Information classification
+- Records management
+- Change management
+
+Governance standards will be documented separately.
+---
+
+# 9. Automation Strategy
+Power Automate will be used to automate business processes including:
+- Document approval
+- Record review reminders
+- Retention notifications
+- Disposition reviews
+- Audit workflows
+- Knowledge publication
+---
+
+# 10. Architecture Repository
+The Architecture Repository serves as the authoritative location for:
+- Architecture documentation
+- Governance documentation
+- Diagrams
+- Screenshots
+- Workflow designs
+- Design decisions
+---
+
+# 11. Implementation Roadmap
+## Phase 1
+- Corporate Hub
+- Practice Area Sites
+- Architecture Repository
+
+## Phase 2
+- Record Classification Scheme
+- Metadata Framework
+- Information Architecture
+
+## Phase 3
+- Libraries
+- Content Types
+- Governance Controls
+
+## Phase 4
+- Records Management
+- Inactive Assets
+- Permanent Archive
+
+## Phase 5
+- Power Automate
+- Search Optimization
+- Copilot Readiness
+
+## Phase 6
+- Portfolio Documentation
+- GitHub Publication
+---
+
+# 12. Future Enhancements
+Potential future enhancements include:
+- Microsoft Purview integration
+- Advanced retention policies
+- Microsoft Graph provisioning
+- PnP PowerShell automation
+- Knowledge Center implementation
+- Records Center implementation
+- Copilot adoption and optimization
