@@ -1,7 +1,7 @@
 # Content Type Architecture
 
 **Organization:** QualityFirst Technologies  
-**Version:** 1.0 Draft  
+**Version:** 2.0 Draft  
 **Author:** Daniel Chakraborty  
 **Platform:** Microsoft SharePoint Online
 
@@ -9,176 +9,305 @@
 
 # 1. Purpose
 
-The Content Type Architecture defines the structure of business records within the QualityFirst Technologies Information Governance Platform.
+The Content Type Architecture defines how business records are structured, classified, and managed within the QualityFirst Technologies Information Governance Platform.
 
-The architecture enables:
+Content Types provide consistency across sites, libraries, search, records management, automation, and future Copilot-enabled experiences.
 
-- Standardized document classification
-- Consistent metadata application
-- Information governance
-- Search optimization
-- Records management
-- Power Automate integration
-- Future Copilot readiness
+The architecture is designed to:
 
-The design follows a hierarchical inheritance model to maximize reusability and consistency.
+- Standardize content classification
+- Promote metadata reuse
+- Improve enterprise search
+- Enable records management
+- Support automation workflows
+- Reduce content duplication
+- Improve Copilot readiness
+
+The design follows a hierarchical inheritance model that allows common metadata and governance controls to be inherited by all business records.
 
 ---
 
-# 2. Content Type Hierarchy
+# 2. Content Type Architecture Principles
+
+The architecture follows these principles:
+
+- Reuse before customization
+- Metadata-driven classification
+- Inheritance-based design
+- Consistent governance controls
+- Business-function alignment
+- Search optimization
+- Copilot readiness
+- Scalability and extensibility
+
+---
+
+# 3. Content Type Hierarchy
 
 ```text
 Business Record
 │
-├── Quality Record
-│   ├── Test Plan
-│   ├── Test Case
-│   ├── Test Report
-│   ├── Defect Analysis Report
-│   ├── Quality Metrics Report
-│   └── Automation Framework Document
+├── Practice Area Record
+│   │
+│   ├── Quality Record
+│   │   ├── Test Plan
+│   │   ├── Test Case
+│   │   ├── Test Report
+│   │   ├── Defect Analysis Report
+│   │   ├── Quality Metrics Report
+│   │   └── Automation Framework Document
+│   │
+│   ├── Media Record
+│   │   ├── Content Standard
+│   │   ├── Editorial Guideline
+│   │   ├── Accessibility Assessment
+│   │   ├── Localization Review
+│   │   └── Publishing Approval
+│   │
+│   ├── Security Record
+│   │   ├── Risk Assessment
+│   │   ├── Security Policy
+│   │   ├── Vulnerability Report
+│   │   ├── Penetration Test Report
+│   │   ├── Incident Report
+│   │   └── Compliance Evidence
+│   │
+│   └── Conformance Record
+│       ├── Certification Report
+│       ├── Conformance Test Result
+│       ├── Interoperability Assessment
+│       ├── Standards Documentation
+│       └── Approval Record
 │
-├── Media Record
-│   ├── Content Standard
-│   ├── Editorial Guideline
-│   ├── Accessibility Assessment
-│   ├── Localization Review
-│   └── Publishing Approval
+├── Corporate Function Record
+│   │
+│   ├── Financial Record
+│   │   ├── Budget
+│   │   ├── Expense Report
+│   │   ├── Invoice
+│   │   └── Financial Statement
+│   │
+│   ├── HR Record
+│   │   ├── Training Record
+│   │   ├── Performance Review
+│   │   ├── Recruitment Document
+│   │   └── Policy Acknowledgement
+│   │
+│   └── Project Record
+│       ├── Project Charter
+│       ├── Status Report
+│       ├── Risk Register
+│       └── Lessons Learned
 │
-├── Security Record
-│   ├── Risk Assessment
-│   ├── Security Policy
-│   ├── Vulnerability Report
-│   ├── Penetration Test Report
-│   ├── Incident Report
-│   └── Compliance Evidence
-│
-├── Conformance Record
-│   ├── Certification Report
-│   ├── Conformance Test Result
-│   ├── Interoperability Assessment
-│   ├── Standards Documentation
-│   └── Approval Record
-│
-├── Financial Record
-│   ├── Budget
-│   ├── Expense Report
-│   ├── Invoice
-│   └── Financial Statement
-│
-├── HR Record
-│   ├── Training Record
-│   ├── Performance Review
-│   ├── Recruitment Document
-│   └── Policy Acknowledgement
-│
-└── Project Record
-    ├── Project Charter
-    ├── Status Report
-    ├── Risk Register
-    └── Lessons Learned
+└── Governance Record
+    ├── Policy
+    ├── Procedure
+    ├── Standard
+    └── Guideline
 ```
 
 ---
 
-# 3. Enterprise Site Columns
+# 4. Metadata Inheritance Model
 
-The following Site Columns shall be inherited by all business content types.
+```text
+Business Record
+        │
+        ▼
+Practice Area Record
+        │
+        ▼
+Quality Record
+        │
+        ▼
+Test Plan
+```
 
-## Core Site Columns
+Each child Content Type inherits metadata from its parent Content Type.
+
+This approach ensures:
+
+- Consistency
+- Reduced administration effort
+- Easier automation
+- Improved governance
+
+---
+
+# 5. Enterprise Site Columns
+
+The following Site Columns shall be inherited by all business Content Types.
+
+## Core Metadata
 
 ### Record ID
 
-**Purpose:** Unique identifier assigned to each record.
+**Purpose**
 
-**Examples:**
+Unique identifier assigned to each record.
+
+**Type**
+
+Single Line of Text
+
+**Examples**
 
 ```text
 QE-TR-0001
 SEC-RA-0005
 ```
 
-**Type:** Single Line of Text
-
 ---
 
 ### Document Type
 
-**Purpose:** Classifies the content.
+**Purpose**
 
-**Type:** Managed Metadata
+Classifies the record according to the Enterprise Taxonomy.
 
----
+**Type**
 
-### Practice Area
+Managed Metadata
 
-**Purpose:** Identifies the business function responsible for the record.
+**Term Set**
 
-**Type:** Managed Metadata
-
----
-
-### Owner
-
-**Purpose:** Accountable individual.
-
-**Type:** Person or Group
-
----
-
-### Lifecycle Status
-
-**Purpose:** Tracks progression through the records lifecycle.
-
-**Type:** Choice
-
----
-
-### Retention Category
-
-**Purpose:** Defines retention requirements.
-
-**Type:** Managed Metadata
-
----
-
-### Review Date
-
-**Purpose:** Scheduled review date.
-
-**Type:** Date and Time
+Document Types
 
 ---
 
 ### Record Classification
 
-**Purpose:** Identifies the specific record class.
+**Purpose**
 
-**Type:** Managed Metadata
+Identifies the specific record category.
 
----
+**Type**
 
-### Record Created Date
+Managed Metadata
 
-**Purpose:** Historical audit reference.
+**Term Set**
 
-**Type:** Date and Time
-
----
-
-### Record Owner Department
-
-**Purpose:** Department responsible for the record.
-
-**Type:** Managed Metadata
+Record Classifications
 
 ---
 
-# 4. Content Type Specific Columns
+### Practice Area
+
+**Purpose**
+
+Identifies the responsible Practice Area.
+
+**Type**
+
+Managed Metadata
+
+**Term Set**
+
+Practice Areas
+
+---
+
+### Corporate Function
+
+**Purpose**
+
+Identifies the responsible Corporate Function.
+
+**Type**
+
+Managed Metadata
+
+**Term Set**
+
+Corporate Functions
+
+---
+
+### Owner
+
+**Purpose**
+
+Identifies the accountable business owner.
+
+**Type**
+
+Person or Group
+
+---
+
+### Lifecycle Status
+
+**Purpose**
+
+Tracks record progression through the lifecycle.
+
+**Type**
+
+Managed Metadata
+
+**Term Set**
+
+Lifecycle Status
+
+---
+
+### Retention Category
+
+**Purpose**
+
+Defines retention requirements.
+
+**Type**
+
+Managed Metadata
+
+**Term Set**
+
+Retention Categories
+
+---
+
+### Review Date
+
+**Purpose**
+
+Identifies the next scheduled review.
+
+**Type**
+
+Date and Time
+
+---
+
+### Effective Date
+
+**Purpose**
+
+Date the record becomes effective.
+
+**Type**
+
+Date and Time
+
+---
+
+### Disposition Date
+
+**Purpose**
+
+Date disposition review becomes due.
+
+**Type**
+
+Date and Time
+
+---
+
+# 6. Specialized Metadata
 
 ## Quality Record
 
-Additional Columns:
+Additional metadata:
 
 - Testing Type
 - Application Name
@@ -189,7 +318,7 @@ Additional Columns:
 
 ## Media Record
 
-Additional Columns:
+Additional metadata:
 
 - Publication Channel
 - Content Language
@@ -200,7 +329,7 @@ Additional Columns:
 
 ## Security Record
 
-Additional Columns:
+Additional metadata:
 
 - Risk Level
 - Security Domain
@@ -211,7 +340,7 @@ Additional Columns:
 
 ## Conformance Record
 
-Additional Columns:
+Additional metadata:
 
 - Standard
 - Certification Body
@@ -222,7 +351,7 @@ Additional Columns:
 
 ## Project Record
 
-Additional Columns:
+Additional metadata:
 
 - Project Name
 - Client
@@ -231,129 +360,105 @@ Additional Columns:
 
 ---
 
-# 5. Column Type Standards
+# 7. Relationship to Enterprise Taxonomy
 
-## Managed Metadata
+This Content Type Architecture relies upon the controlled vocabulary defined in:
 
-Used when values must remain consistent across the enterprise.
+```text
+EnterpriseTaxonomy.md
+```
 
-**Examples:**
+The Enterprise Taxonomy governs:
 
-- Practice Area
-- Record Classification
-- Retention Category
-- Document Type
-
----
-
-## Choice
-
-Used when values are finite and unlikely to change frequently.
-
-**Examples:**
-
+- Practice Areas
+- Corporate Functions
+- Document Types
+- Record Classifications
 - Lifecycle Status
-- Publication Status
-- Compliance Status
+- Retention Categories
+
+No Content Type-specific vocabulary should override Enterprise Taxonomy definitions.
 
 ---
 
-## Person or Group
+# 8. SharePoint Implementation Strategy
 
-Used for accountability assignments.
+## Phase 1
 
-**Examples:**
-
-- Owner
-- Project Manager
-- Reviewer
-
----
-
-## Date and Time
-
-Used for lifecycle and governance requirements.
-
-**Examples:**
-
-- Review Date
-- Effective Date
-- Disposition Date
-
----
-
-## Single Line of Text
-
-Used for identifiers and short labels.
-
-**Examples:**
-
-- Record ID
-- Application Name
-- Protocol Version
-
----
-
-# 7. SharePoint Implementation Sequence
-
-## Phase 1: Create Site Columns
+Create:
 
 ```text
-Record ID
-Document Type
-Practice Area
-Owner
-Lifecycle Status
-Retention Category
-Review Date
+QualityFirst Core Metadata
 ```
+
+Site Column Group.
 
 ---
 
-## Phase 2: Create Term Store Structure
+## Phase 2
 
-```text
-QualityFirst Technologies
-```
-
-Create all enterprise term sets under this group.
-
----
-
-## Phase 3: Create Parent Content Type
+Create:
 
 ```text
 Business Record
 ```
 
+Parent Content Type.
+
 ---
 
-## Phase 4: Create Child Content Types
+## Phase 3
+
+Create:
+
+```text
+Practice Area Record
+
+Corporate Function Record
+
+Governance Record
+```
+
+Intermediate Content Types.
+
+---
+
+## Phase 4
+
+Create:
 
 ```text
 Quality Record
 Media Record
 Security Record
 Conformance Record
+Financial Record
+HR Record
 Project Record
 ```
 
+Child Content Types.
+
 ---
 
-## Phase 5: Create Specialized Content Types
+## Phase 5
+
+Create specialized Content Types.
+
+Examples:
 
 ```text
 Test Plan
 Risk Assessment
 Certification Report
 Project Charter
-Accessibility Assessment
 Security Policy
+Accessibility Assessment
 ```
 
 ---
 
-# 8. Future Enhancements
+# 9. Future Enhancements
 
 Potential future enhancements include:
 
@@ -364,19 +469,24 @@ Potential future enhancements include:
 - AI-generated metadata enrichment
 - Copilot grounding optimization
 - Enterprise knowledge management integration
+- Managed document templates
 
 ---
 
-## Document Status
-
-**Status:** Draft  
-**Related Documents:**
+# 10. Related Documents
 
 - Architecture Blueprint
+- Enterprise Taxonomy
 - Information Architecture
 - Metadata Framework
 - Records Lifecycle Model
 - Retention Schedule
 - Permission Model
 
-**End of Document**
+---
+
+## Document Status
+
+**Status:** Draft  
+**Version:** 2.0 Draft  
+**Owner:** Information Architecture Team
